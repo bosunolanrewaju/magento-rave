@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<payment>
+			<ravepayment>
+				<active>1</active>
+				<model>Rave\Payments\Model\Payment\RavePayment</model>
+				<order_status>pending</order_status>
+				<title>RavePayment</title>
+				<allowspecific>0</allowspecific>
+				<group>Offline</group>
+			</ravepayment>
+		</payment>
+	</default>
+</config>

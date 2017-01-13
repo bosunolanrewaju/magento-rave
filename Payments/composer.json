@@ -1,0 +1,21 @@
+{
+    "name": "rave/module-payments",
+    "description": "Rave Payment gateway for accepting credit card, debit card and bank account payment on you store",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Rave\\Payments\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
