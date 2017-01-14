@@ -30,7 +30,7 @@
             <config_path>payment/rave/modal_desc</config_path>
 						<comment><![CDATA[(Optional) The description on the payment modal. Default: FLW PAY MODAL]]></comment>
 					</field>
-					<field id="logo" translate="label" type="image" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<field id="logo" translate="label" type="image" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
 				    <label>Modal Logo</label>
 				    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
 				    <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>

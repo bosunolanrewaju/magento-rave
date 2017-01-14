@@ -31,7 +31,7 @@
                 <button class="action primary checkout"
                         type="submit"
                         data-bind="
-                        click: placeOrder,
+                        click: makePayment,
                         attr: {title: $t('Place Order')},
                         css: {disabled: !isPlaceOrderActionAllowed()},
                         enable: (getCode() == isChecked())
@@ -43,4 +43,4 @@
         </div>
     </div>
 </div>
-        
+

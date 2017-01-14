@@ -1,55 +1,65 @@
 define(
   [
-    'Magento_Checkout/js/view/payment/default'
+    'Magento_Checkout/js/view/payment/default',
+    'Magento_Checkout/js/model/quote',
   ],
-  function(Component) {
+  function(Component, quote) {
     'use strict';
+
     return Component.extend({
+      config: window.checkoutConfig,
+
       defaults: {
         template: 'Rave_Payments/payment/ravepayment'
       },
       getCustomerEmail: function() {
-        return quote.guestEmail || window.checkoutConfig.customerData.email;
+        return quote.guestEmail || this.config.customerData.email;
       },
 
       getQuoteAmount: function() {
-        return window.checkoutConfig.quoteData.base_grand_total;
+        return this.config.quoteData.base_grand_total;
       },
 
       getQuoteCurrency: function() {
-        return window.checkoutConfig.quoteData.base_grand_total;
+        return this.config.quoteData.base_grand_total;
       },
 
       quoteRef: function() {
-        return 'MAGE_' + quote.getQuoteId();
+        return 'MAGE_' + quote.getQuoteId() + '_' + new Date().valueOf();
+      },
+
+      getRaveConfigValue: function(key) {
+        return this.config.payment.rave[key] || '';
+      },
+
+      onClose: function() {
+        this.setErrorMessage("");
+      },
+
+      callback: function() {
+
       },
 
       /** Returns send check to info */
       buildConfig: function() {
-        var option = window.checkoutConfig.payment.ravePayments;
-        var self = this;
         return {
           amount: this.getQuoteAmount(),
-          country: option.country,
-          currency: option.currency,
-          custom_description: option.modal_desc,
-          custom_logo: option.logo,
-          custom_title: option.modal_title,
+          country: this.getRaveConfigValue('country'),
+          currency: this.getRaveConfigValue('currency'),
+          custom_description: this.getRaveConfigValue('modal_desc'),
+          custom_logo: this.getRaveConfigValue('logo'),
+          custom_title: this.getRaveConfigValue('modal_title'),
           customer_email: this.getCustomerEmail(),
-          PBFPubKey: option.pb_key,
+          PBFPubKey: this.getRaveConfigValue('pb_key'),
           txref: this.quoteRef(),
-          onclose: function() {
-            self.setErrorMessage("");
-            // redirectTo( redirectUrl );
-          },
-          callback: function(res) {
-            // sendPaymentRequestResponse( res, form );
-          }
+          onclose: this.onClose.bind(this),
+          callback: this.callback.bind(this)
         };
       },
 
       /** Place Order action */
       makePayment: function() {
+        console.log(this.buildConfig());
         getpaidSetup(this.buildConfig());
       },
 

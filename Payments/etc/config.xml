@@ -6,7 +6,7 @@
 				<active>1</active>
 				<model>Rave\Payments\Model\Payment\RavePayment</model>
 				<order_status>pending</order_status>
-				<title>RavePayment</title>
+				<title>Rave Payment Gateway</title>
 				<allowspecific>0</allowspecific>
 				<group>Offline</group>
 			</ravepayment>
