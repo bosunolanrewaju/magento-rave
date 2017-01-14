@@ -32,12 +32,8 @@ define(
         return this.config.payment.rave[key] || '';
       },
 
-      onClose: function() {
-        this.setErrorMessage("");
-      },
-
-      callback: function() {
-
+      callback: function(res) {
+        this.processPaymentResponse(res);
       },
 
       /** Returns send check to info */
@@ -52,21 +48,31 @@ define(
           customer_email: this.getCustomerEmail(),
           PBFPubKey: this.getRaveConfigValue('pb_key'),
           txref: this.quoteRef(),
-          onclose: this.onClose.bind(this),
           callback: this.callback.bind(this)
         };
       },
 
       /** Place Order action */
       makePayment: function() {
-        console.log(this.buildConfig());
         getpaidSetup(this.buildConfig());
       },
 
       setErrorMessage: function(message) {
         this.messageContainer.addErrorMessage({
-          message: 'Error ni oooooo'
+          message: 'Payment could not be made. Please try again. (' + message + ')'
         });
+      },
+
+      processPaymentResponse: function(res) {
+        var result = res.tx;
+        var statusCode = result.paymentType == 'account' ? result.acctvalrespcode : result.vbvrespcode;
+
+        if (statusCode !== '00') {
+          var responseMsg  = ( result.paymentType === 'account' ) ? result.acctvalrespmsg  : result.vbvrespmessage;
+          this.setErrorMessage(responseMsg);
+        } else {
+          this.placeOrder();
+        }
       }
     });
   }
