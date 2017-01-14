@@ -7,7 +7,8 @@
 
 					<label>RavePayment</label>
 					<comment><![CDATA[Accepting payments globally just got easier.<br/>Rave lets you receive payments locally and internationally with no hassles and zero set up fees.]]></comment>
-          <fieldset_css>complex ravepayment-section</fieldset_css>
+          <fieldset_css>complex rave-section</fieldset_css>
+          <frontend_model>Rave\Payments\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
           <attribute type="displayIn">recommended_solutions</attribute>
 
 					<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="select">

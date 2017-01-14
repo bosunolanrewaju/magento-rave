@@ -60,13 +60,14 @@ Once the `setup:upgrade` completes the module will be available in the Store Adm
 
 Configuration can be done using the Administrator section of your Magento store.
 
-* From the admin dashboard, using the left menu navigate to __Stores__>__Configuration__>__Sales__> __Payment Methods__.
+* From the admin dashboard, using the left menu navigate to __Stores__ > __Configuration__ > __Sales__ > __Payment Methods__.
 * Select __Rave Payments__ from the list of recommended modules.
 * Set __Enable__ to __Yes__ and fill the rest of the config form accordingly, then click the orange __Save Config__ to save and activate.
   Note: Public Key is required to activate this module for cart checkout.
 
 ## Screenshots ##
 
+![Configuration Screenshot](https://cloud.githubusercontent.com/assets/8383666/21956754/e5605eca-da87-11e6-855a-eddac6d33961.png)
 
 
 ### Suggestions / Contributions
@@ -77,4 +78,4 @@ To contribute, fork the repo, add your changes and modifications then create a p
 
 ### License
 
-##### See LICENSE.txt
+##### GPL-3. See LICENSE.txt
