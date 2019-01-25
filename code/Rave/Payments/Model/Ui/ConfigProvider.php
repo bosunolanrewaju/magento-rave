@@ -44,16 +44,20 @@ final class ConfigProvider implements ConfigProviderInterface
    */
   public function getConfig()
   {
+    
+    if ($this->scopeConfig->getValue('payment/rave/test_mode', $this->scopeStore)) {
+      $public_key = $this->scopeConfig->getValue('payment/rave/pb_key', $this->scopeStore);
+      
+    } else {
+      $public_key = $this->scopeConfig->getValue('payment/rave/live_pb_key', $this->scopeStore);
+    }
     return [
       'payment' => [
         'rave' => [
-          'pb_key' => $this->scopeConfig->getValue('payment/rave/pb_key', $this->scopeStore),
+          'pb_key' => $public_key,
           'modal_title' => $this->scopeConfig->getValue('payment/rave/modal_title', $this->scopeStore),
           'modal_desc' => $this->scopeConfig->getValue('payment/rave/modal_desc', $this->scopeStore),
-          'currency' => $this->scopeConfig->getValue('payment/rave/currency', $this->scopeStore),
-          'country' => $this->scopeConfig->getValue('payment/rave/country', $this->scopeStore),
-          'country' => $this->scopeConfig->getValue('payment/rave/country', $this->scopeStore),
-          'logo' => $this->scopeConfig->getValue('payment/rave/logo', $this->scopeStore),
+          'test_mode' => $this->scopeConfig->getValue('payment/rave/test_mode', $this->scopeStore),
         ]
       ]
     ];

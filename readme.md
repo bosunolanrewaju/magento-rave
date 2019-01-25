@@ -1,8 +1,8 @@
 # Magento 2 Rave Payment Gateway
 
- - **Contributors:** bosunolanrewaju
+ - **Contributors:** bosunolanrewaju, anjolabassey
  - **Tags:** rave, magento 2, payment gateway, bank account, credit card, debit card, nigeria, kenya, international, mastercard, visa
- - **Tested with:** PHP 5.6+, Magento CE 2.1.3
+ - **Tested with:** PHP 5.6+, PHP 7.0.2, Magento CE 2.1.3
  - **Stable tag:** Still in BETA
  - **License:** GPL-3 - see LICENSE.txt
 
@@ -13,6 +13,9 @@ Support for:
  - Credit card
  - Debit card
  - Bank account
+ - Mpesa
+ - Mobile money
+ - Barter
 
 
 ## Description
@@ -21,7 +24,7 @@ Accept Credit card, Debit card and Bank account payment directly on your store w
 
 #### Take Credit card payments easily and directly on your store
 
-Signup for an account [here](https://flutterwave.com)
+Signup for an account [here](https://rave.flutterwave.com)
 
 Rave is available in:
 

@@ -3,7 +3,7 @@ define(
     'Magento_Checkout/js/view/payment/default',
     'Magento_Checkout/js/model/quote',
   ],
-  function(Component, quote) {
+  function (Component, quote) {
     'use strict';
 
     return Component.extend({
@@ -12,36 +12,53 @@ define(
       defaults: {
         template: 'Rave_Payments/payment/ravepayment'
       },
-      getCustomerEmail: function() {
+      getCustomerEmail: function () {
         return quote.guestEmail || this.config.customerData.email;
       },
 
-      getQuoteAmount: function() {
+      getQuoteAmount: function () {
         return this.config.quoteData.base_grand_total;
       },
 
-      getQuoteCurrency: function() {
-        return this.config.quoteData.base_grand_total;
+      getQuoteCurrency: function () {
+        return this.config.quoteData.quote_currency_code;
+
       },
 
-      quoteRef: function() {
+      quoteRef: function () {
         return 'MAGE_' + quote.getQuoteId() + '_' + new Date().valueOf();
       },
 
-      getRaveConfigValue: function(key) {
+      getRaveConfigValue: function (key) {
         return this.config.payment.rave[key] || '';
       },
 
-      callback: function(res) {
+      callback: function (res) {
         this.processPaymentResponse(res);
       },
 
       /** Returns send check to info */
-      buildConfig: function() {
+      buildConfig: function () {
+        var rave_country;
+        switch (this.getQuoteCurrency()) {
+          case 'GHS':
+            rave_country = 'GH';
+            break;
+          case 'KES':
+            rave_country = 'KE';
+            break;
+          case 'ZAR':
+            rave_country = 'ZA';
+            break;
+
+          default:
+            rave_country = 'NG';
+            break;
+        }
         return {
           amount: this.getQuoteAmount(),
-          country: this.getRaveConfigValue('country'),
-          currency: this.getRaveConfigValue('currency'),
+          currency: this.getQuoteCurrency(),
+          country: rave_country,
           custom_description: this.getRaveConfigValue('modal_desc'),
           custom_logo: this.getRaveConfigValue('logo'),
           custom_title: this.getRaveConfigValue('modal_title'),
@@ -53,22 +70,38 @@ define(
       },
 
       /** Place Order action */
-      makePayment: function() {
-        getpaidSetup(this.buildConfig());
+      makePayment: function () {
+        var test = this.getRaveConfigValue('test_mode')
+        if (test) {
+          var script = document.createElement('script');
+          script.src = '//ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js';
+          script.src_type = 'url';
+
+          document.getElementsByTagName('head')[0].appendChild(script);
+          getpaidSetup(this.buildConfig());
+        } else {
+          var script = document.createElement('script');
+          script.src = '//api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js';
+          script.src_type = 'url';
+
+          document.getElementsByTagName('head')[0].appendChild(script);
+          getpaidSetup(this.buildConfig());
+        }
+
       },
 
-      setErrorMessage: function(message) {
+      setErrorMessage: function (message) {
         this.messageContainer.addErrorMessage({
           message: 'Payment could not be made. Please try again. (' + message + ')'
         });
       },
 
-      processPaymentResponse: function(res) {
+      processPaymentResponse: function (res) {
         var result = res.tx;
         var statusCode = result.paymentType == 'account' ? result.acctvalrespcode : result.vbvrespcode;
 
         if (statusCode !== '00') {
-          var responseMsg  = ( result.paymentType === 'account' ) ? result.acctvalrespmsg  : result.vbvrespmessage;
+          var responseMsg = (result.paymentType === 'account') ? result.acctvalrespmsg : result.vbvrespmessage;
           this.setErrorMessage(responseMsg);
         } else {
           this.placeOrder();
