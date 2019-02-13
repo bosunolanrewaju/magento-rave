@@ -11,7 +11,7 @@ define(
         rendererList.push(
             {
                 type: 'ravepayment',
-                component: 'Rave_Payments/js/view/payment/method-renderer/ravepayment-method'
+                component: 'Rave_Payments/js/view/payment/method-renderer/ravepayment'
             }
         );
         return Component.extend({});
