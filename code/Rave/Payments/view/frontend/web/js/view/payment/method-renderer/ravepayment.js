@@ -71,23 +71,30 @@ define(
 
       /** Place Order action */
       makePayment: function () {
-        var test = this.getRaveConfigValue('test_mode')
+        var test = this.getRaveConfigValue('test_mode');
+        test = (parseInt(test) == 1) ? true : false;
+        
         if (test) {
           var script = document.createElement('script');
           script.src = '//ravesandboxapi.flutterwave.com/flwv3-pug/getpaidx/api/flwpbf-inline.js';
           script.src_type = 'url';
 
           document.getElementsByTagName('head')[0].appendChild(script);
-          getpaidSetup(this.buildConfig());
-        } else {
+          var _this = this;
+          setTimeout(function () {
+            getpaidSetup(_this.buildConfig());
+          },3000);
+        } else {  
           var script = document.createElement('script');
           script.src = '//api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js';
           script.src_type = 'url';
 
           document.getElementsByTagName('head')[0].appendChild(script);
-          getpaidSetup(this.buildConfig());
+          var _this = this;
+          setTimeout(function () {
+            getpaidSetup(_this.buildConfig());
+          },3000);
         }
-
       },
 
       setErrorMessage: function (message) {
