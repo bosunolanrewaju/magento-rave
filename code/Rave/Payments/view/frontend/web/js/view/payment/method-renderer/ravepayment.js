@@ -1,7 +1,7 @@
 define(
   [
     'Magento_Checkout/js/view/payment/default',
-    'Magento_Checkout/js/model/quote',
+    'Magento_Checkout/js/model/quote'
   ],
   function (Component, quote) {
     'use strict';
@@ -17,7 +17,7 @@ define(
       },
 
       getQuoteAmount: function () {
-        return this.config.quoteData.base_grand_total;
+        return this.config.quoteData.grand_total;
       },
 
       getQuoteCurrency: function () {
@@ -55,6 +55,7 @@ define(
             rave_country = 'NG';
             break;
         }
+        
         return {
           amount: this.getQuoteAmount(),
           currency: this.getQuoteCurrency(),
@@ -83,7 +84,7 @@ define(
           var _this = this;
           setTimeout(function () {
             getpaidSetup(_this.buildConfig());
-          },3000);
+          },2000);
         } else {  
           var script = document.createElement('script');
           script.src = '//api.ravepay.co/flwv3-pug/getpaidx/api/flwpbf-inline.js';
@@ -93,7 +94,7 @@ define(
           var _this = this;
           setTimeout(function () {
             getpaidSetup(_this.buildConfig());
-          },3000);
+          },2000);
         }
       },
 
