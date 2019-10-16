@@ -16,10 +16,20 @@
 						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
             <config_path>payment/rave/active</config_path>
 					</field>
+					<field id="test_mode" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="select"  >
+              <label>Test Mode</label>
+              <source_model>Rave\Payments\Model\Payment\Source\Test</source_model>
+							<config_path>payment/rave/test_mode</config_path>
+					</field>
 					<field id="public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="12" translate="label" type="text">
-						<label>Pay Button Public Key</label>
+						<label>Test Public Key</label>
             <config_path>payment/rave/pb_key</config_path>
 						<comment><![CDATA[(Required) Your Pay Button public key. You can get it from your Rave account dashboard.]]></comment>
+					</field>
+					<field id="live_public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="12" translate="label" type="text">
+						<label>Live Public Key</label>
+            <config_path>payment/rave/live_pb_key</config_path>
+						<comment><![CDATA[(Required) Your live public key. You can get it from your Rave account dashboard.]]></comment>
 					</field>
 					<field id="modal_title" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="14" translate="label" type="text">
 						<label>Payment Modal Title</label>
@@ -30,26 +40,6 @@
 						<label>Payment Modal Description</label>
             <config_path>payment/rave/modal_desc</config_path>
 						<comment><![CDATA[(Optional) The description on the payment modal. Default: FLW PAY MODAL]]></comment>
-					</field>
-					<field id="logo" translate="label" type="image" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
-				    <label>Modal Logo</label>
-				    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
-				    <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
-            <config_path>payment/rave/logo</config_path>
-				    <base_url type="media" scope_info="1">logo</base_url>
-				    <comment><![CDATA[(Optional) Custom logo to show on the modal. Allowed file types: jpeg, gif, png.]]></comment>
-					</field>
-					<field id="currency" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="18" translate="label" type="select">
-						<label>Charge Currency</label>
-						<source_model>Rave\Payments\Model\Payment\Source\Currency</source_model>
-            <config_path>payment/rave/currency</config_path>
-						<comment><![CDATA[(Optional) The currency the customer will be charged in. Default: NGN]]></comment>
-					</field>
-					<field id="country" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="20" translate="label" type="select">
-						<label>Charge Country</label>
-						<source_model>Rave\Payments\Model\Payment\Source\Country</source_model>
-            <config_path>payment/rave/country</config_path>
-						<comment><![CDATA[(Optional) Default: NG: Nigeria]]></comment>
 					</field>
 					<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
 						<label>Title</label>

@@ -24,9 +24,9 @@ namespace Rave\Payments\Model\Payment\Source;
 use Magento\Framework\Option\ArrayInterface;
 
 /**
- * Class Currency
+ * Class Test
  */
-class Currency implements ArrayInterface
+class Test implements ArrayInterface
 {
   /**
    * Possible environment types
@@ -37,20 +37,12 @@ class Currency implements ArrayInterface
   {
     return [
       [
-        'value' => 'NGN',
-        'label' => 'NGN (Naira)',
+        'value' => true,
+        'label' => 'Yes',
       ],
       [
-        'value' => 'USD',
-        'label' => 'USD (Dollar)'
-      ],
-      [
-        'value' => 'GBP',
-        'label' => 'GBP (Pound)'
-      ],
-      [
-        'value' => 'EUR',
-        'label' => 'EUR (Euro)'
+        'value' => false,
+        'label' => 'No'
       ]
     ];
   }
