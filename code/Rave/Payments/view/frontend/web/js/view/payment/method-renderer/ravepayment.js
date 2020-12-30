@@ -17,7 +17,7 @@ define(
       },
 
       getQuoteAmount: function () {
-        return this.config.quoteData.grand_total;
+        return this.config.quoteData.total;
       },
 
       getQuoteCurrency: function () {
