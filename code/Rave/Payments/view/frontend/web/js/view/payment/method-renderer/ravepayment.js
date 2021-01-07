@@ -18,7 +18,7 @@ define(
 
       getQuoteAmount: function () {
         var totals = quote.getTotals()();
-			  return (totals ? totals : quote)['grand_total'];
+	return (totals ? totals : quote)['grand_total'];
       },
 
       getQuoteCurrency: function () {
