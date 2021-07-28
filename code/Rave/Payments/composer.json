@@ -1,25 +1,21 @@
 {
-    "name": "rave/module-payments",
-    "description": "Rave Payment gateway for accepting credit card, debit card and bank account payments on your store",
+    "name": "flutterwave/module-payments",
+    "description": "Flutterwave Payment gateway for accepting credit card, debit card and bank account payments on your store",
     "license": "GPL-3.0",
     "authors": [
         {
-            "name": "Bosun Olanrewaju",
-            "email": "bosunolanrewaju@gmail.com"
+            "name": "Flutterwave Developers",
+            "email": "developers@flutterwavego.com"
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "magento/module-payment": "100.1.*",
-        "magento/module-checkout": "100.1.*",
-        "magento/module-sales": "100.1.*"
-    },
+    "require": {},
     "autoload": {
         "files": [
             "registration.php"
         ],
         "psr-4": {
-            "Rave\\Payments\\": ""
+            "Flutterwave\\Payments\\": ""
         }
     }
 }

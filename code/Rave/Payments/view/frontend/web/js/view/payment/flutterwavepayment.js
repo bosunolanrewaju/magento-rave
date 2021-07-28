@@ -11,7 +11,7 @@ define(
         rendererList.push(
             {
                 type: 'ravepayment',
-                component: 'Rave_Payments/js/view/payment/method-renderer/ravepayment'
+                component: 'Flutterwave_Payments/js/view/payment/method-renderer/flutterwavepayment-method'
             }
         );
         return Component.extend({});

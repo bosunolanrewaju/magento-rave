@@ -3,7 +3,7 @@
   <type name="Magento\Checkout\Model\CompositeConfigProvider">
     <arguments>
       <argument name="configProviders" xsi:type="array">
-        <item name="rave_config_provider" xsi:type="object">Rave\Payments\Model\Ui\ConfigProvider</item>
+        <item name="flutterwave_config_provider" xsi:type="object">Flutterwave\Payments\Model\Ui\ConfigProvider</item>
       </argument>
     </arguments>
   </type>

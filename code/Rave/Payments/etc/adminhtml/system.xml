@@ -2,44 +2,74 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
 	<system>
 		<section id="payment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="1000" translate="label">
-			<group id="ravepayment_section" showInDefault="0" showInStore="0" showInWebsite="0" sortOrder="10" translate="label">
-				<group id="ravepayment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+			<group id="flutterwavepayment_section" showInDefault="0" showInStore="0" showInWebsite="0" sortOrder="10" translate="label">
+				<group id="flutterwavepayment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
 
-					<label>RavePayment</label>
-					<comment><![CDATA[Accepting payments globally just got easier.<br/>Rave lets you receive payments locally and internationally with no hassles and zero set up fees.]]></comment>
-          <fieldset_css>complex rave-section</fieldset_css>
-          <frontend_model>Rave\Payments\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+					<label>Flutterwave Payment Gateway</label>
+					<comment><![CDATA[Accepting payments globally just got easier.<br/>Flutterwave lets you receive payments both locally and internationally with no issues.]]></comment>
+          <fieldset_css>complex flutterwave-section</fieldset_css>
+          <frontend_model>Flutterwave\Payments\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
           <attribute type="displayIn">recommended_solutions</attribute>
 
-					<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="6" translate="label" type="select">
 						<label>Enabled</label>
 						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-            <config_path>payment/rave/active</config_path>
+            <config_path>payment/flutterwave/active</config_path>
 					</field>
-					<field id="test_mode" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="select"  >
-              <label>Test Mode</label>
-              <source_model>Rave\Payments\Model\Payment\Source\Test</source_model>
-							<config_path>payment/rave/test_mode</config_path>
+					<field id="test_mode" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="7" translate="label" type="select">
+						<label>Test Mode</label>
+						<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>payment/flutterwave/test_mode</config_path>
 					</field>
-					<field id="public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="12" translate="label" type="text">
+					<field id="test_public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="8" translate="label" type="text">
 						<label>Test Public Key</label>
-            <config_path>payment/rave/pb_key</config_path>
-						<comment><![CDATA[(Required) Your Pay Button public key. You can get it from your Rave account dashboard.]]></comment>
+            <config_path>payment/flutterwave/test_public_key</config_path>
+						<comment><![CDATA[(Required) Your test public key. You can get it from your <a href="https://ravesandbox.flutterwave.com/dashboard/settings/apis" target="_blank"> Flutterwave Sandbox account dashboard.</a>]]></comment>
 					</field>
-					<field id="live_public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="12" translate="label" type="text">
+					<field id="test_secret_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="9" translate="label" type="text">
+						<label>Test Secret Key</label>
+            <config_path>payment/flutterwave/test_secret_key</config_path>
+						<comment><![CDATA[(Required) Your test secret key. You can get it from your <a href="https://ravesandbox.flutterwave.com/dashboard/settings/apis" target="_blank"> Flutterwave Sandbox account dashboard.</a>]]></comment>
+					</field>
+					<field id="live_public_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="10" translate="label" type="text">
 						<label>Live Public Key</label>
-            <config_path>payment/rave/live_pb_key</config_path>
-						<comment><![CDATA[(Required) Your live public key. You can get it from your Rave account dashboard.]]></comment>
+            <config_path>payment/flutterwave/live_public_key</config_path>
+						<comment><![CDATA[(Required) Your live public key. You can get it from your <a href="https://rave.flutterwave.com/dashboard/settings/apis" target="_blank"> Flutterwave account dashboard.</a>]]></comment>
+					</field>
+					<field id="live_secret_key" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="11" translate="label" type="text">
+						<label>Live Secret Key</label>
+            <config_path>payment/flutterwave/live_secret_key</config_path>
+						<comment><![CDATA[(Required) Your live secret key. You can get it from your <a href="https://rave.flutterwave.com/dashboard/settings/apis" target="_blank"> Flutterwave account dashboard.</a>]]></comment>
 					</field>
 					<field id="modal_title" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="14" translate="label" type="text">
 						<label>Payment Modal Title</label>
-            <config_path>payment/rave/modal_title</config_path>
+            <config_path>payment/flutterwave/modal_title</config_path>
 						<comment><![CDATA[(Optional) The title on the payment modal. Default: FLW PAY]]></comment>
 					</field>
 					<field id="modal_desc" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="16" translate="label" type="text">
 						<label>Payment Modal Description</label>
-            <config_path>payment/rave/modal_desc</config_path>
+            <config_path>payment/flutterwave/modal_desc</config_path>
 						<comment><![CDATA[(Optional) The description on the payment modal. Default: FLW PAY MODAL]]></comment>
+					</field>
+					<field id="logo" translate="label" type="image" sortOrder="17" showInDefault="1" showInWebsite="1" showInStore="1">
+				    <label>Modal Logo</label>
+				    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+				    <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+            <config_path>payment/flutterwave/logo</config_path>
+				    <base_url type="media" scope_info="1">logo</base_url>
+				    <comment><![CDATA[(Optional) Custom logo to show on the modal. Allowed file types: jpeg, gif, png.]]></comment>
+					</field>
+					<field id="payment_method" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="18" translate="label" type="select">
+						<label>Payment Method</label>
+						<source_model>Flutterwave\Payments\Model\Payment\Source\Currency</source_model>
+            <config_path>payment/flutterwave/payment_method</config_path>
+						<comment><![CDATA[(Optional) The payment modal to be displayed to the customer. Default: All]]></comment>
+					</field>
+					<field id="country" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="12" translate="label" type="select">
+						<label>Merchant Country</label>
+						<source_model>Flutterwave\Payments\Model\Payment\Source\Country</source_model>
+            <config_path>payment/flutterwave/country</config_path>
+						<comment><![CDATA[(Optional) Default: NG: Nigeria]]></comment>
 					</field>
 					<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="text">
 						<label>Title</label>

@@ -1,33 +1,18 @@
 <?php
 /**
- * Rave Payment gateway for accepting credit card, debit card and bank account payment on you store
- * Copyright (C) 2016  2017
+ * Make collections with the Flutterwave gateway module for Magento. 
+ * Copyright (C) 2021
  *
- * This file is part of Rave/Payments.
- *
- * Rave/Payments is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * This file is part of Flutterwave/Flutterwavepayments.
  */
 
-namespace Rave\Payments\Block\Adminhtml\System\Config\Fieldset;
+namespace Flutterwave\Payments\Block\Adminhtml\System\Config\Fieldset;
 
 /**
- * Fieldset renderer for Rave payment
+ * Fieldset renderer for Flutterwave payment
  */
 class Payment extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
-
-
   /**
    * Add custom css class
    *
@@ -40,7 +25,7 @@ class Payment extends \Magento\Config\Block\System\Config\Form\Fieldset
   }
 
    /**
-   * Return header title part of html for Rave payments
+   * Return header title part of html for Flutterwave payments
    *
    * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
    * @return string
@@ -57,7 +42,7 @@ class Payment extends \Magento\Config\Block\System\Config\Form\Fieldset
     $html_id = $element->getHtmlId();
     $inline_style = 'float: right;';
     $heading_style = "";
-    $html .= '<div class="button-container admin__collapsible-block rave-configure">'.
+    $html .= '<div class="button-container admin__collapsible-block flutterwave-configure">'.
           '<button class="button" id="' .
           $html_id .
           '-head" href="#' .
@@ -84,7 +69,7 @@ class Payment extends \Magento\Config\Block\System\Config\Form\Fieldset
 
 
   /**
-   * Return header comment part of html for Rave payments
+   * Return header comment part of html for Flutterwave payments
    *
    * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
    * @return string

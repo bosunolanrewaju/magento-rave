@@ -3,13 +3,14 @@
 }
 
 .rave-section .rave-configure .button:before {
-  content: 'Configure';
+  content: "Configure";
 }
 
 .rave-section.active .rave-configure .button:before {
-  content: 'Close';
+  content: "Close";
 }
 
 .rave-section .heading {
-  background: url('../images/rave-logo.png') no-repeat 0 50% / 18rem auto; padding-left: 20rem;
+  background: url("../images/logo.svg") no-repeat 0 50% / 18rem auto;
+  padding-left: 20rem;
 }
