@@ -1,0 +1,21 @@
+{
+    "name": "flutterwave/module-payments",
+    "description": "Flutterwave Payment gateway for accepting credit card, debit card and bank account payments on your store",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Flutterwave Developers",
+            "email": "developers@flutterwavego.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Flutterwave\\Payments\\": ""
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.rave-configure .button {
+  float: right;
+}
+
+.rave-section .rave-configure .button:before {
+  content: "Configure";
+}
+
+.rave-section.active .rave-configure .button:before {
+  content: "Close";
+}
+
+.rave-section .heading {
+  background: url("../images/logo.svg") no-repeat 0 50% / 18rem auto;
+  padding-left: 20rem;
+}
