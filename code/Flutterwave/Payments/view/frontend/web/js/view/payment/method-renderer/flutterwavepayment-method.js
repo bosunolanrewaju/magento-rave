@@ -32,7 +32,7 @@ define([
         var raveConfiguration = checkoutConfig.payment.flutterwavepayment;
   
         const endpoint = raveConfiguration.api_url;
-        $("head").append('<script src="https://checkout.flutterwave.com/v3.js">');
+    
         return this;
       },
   
